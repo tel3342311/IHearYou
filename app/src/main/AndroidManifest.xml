@@ -3,7 +3,6 @@
     package="com.ihy.ihearyou" >
 
     <application
-        android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
@@ -16,6 +15,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".activity.ConversationActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="Conversation"/>
+        <activity android:name=".activity.LessonActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="Lesson"/>
+        <activity android:name=".activity.ReminderActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="Reminder"/>
+        <activity android:name=".activity.RecordActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="Record"/>
+        <activity android:name=".activity.CollaborationActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="Collaboration"/>
+        <activity android:name=".activity.BatteryActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="Battery"/>
     </application>
 
 </manifest>
