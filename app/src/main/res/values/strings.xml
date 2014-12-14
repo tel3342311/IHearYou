@@ -4,5 +4,17 @@
     <string name="app_name">IHearYou</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
+    <string name="lesson">Lesson</string>
+    <string name="basic">Basic - %d</string>
+    <string name="intermediate">Intermediate - %d</string>
+    <string name="advance">Advance - %d</string>
+    <string name="questionType">Question Type</string>
+    <string name="questionDesc">Listen to the sounds clip, Selected the correct answer
+        from four options</string>
+    <string name="startLesson">Start Lesson</string>
+    <string name="questionTitle">Question %d</string>
+    <string name="questionDetail">Please listen to the sounds clip, choose the right pattern</string>
+    <string name="play">play</string>
+    <string name="pause">pause</string>
+    <string name="Confirm">Confirm</string>
 </resources>

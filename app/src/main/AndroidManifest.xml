@@ -34,6 +34,12 @@
         <activity android:name=".activity.BatteryActivity"
             android:parentActivityName=".MainActivity"
             android:label="Battery"/>
+        <activity android:name=".activity.LessonIntroductionActivity"
+            android:parentActivityName=".activity.LessonActivity"
+            android:label="Lesson"/>
+        <activity android:name=".activity.LessonContentActivity"
+            android:parentActivityName=".activity.LessonIntroductionActivity"
+            android:label="Lesson"/>
     </application>
 
 </manifest>
