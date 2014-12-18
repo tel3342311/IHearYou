@@ -17,4 +17,6 @@
     <string name="play">play</string>
     <string name="pause">pause</string>
     <string name="Confirm">Confirm</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

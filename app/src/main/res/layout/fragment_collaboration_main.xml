@@ -1,0 +1,69 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ihy.ihearyou.fragment.CollaborationMainFragment"
+    android:layout_margin="10sp">
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Hearing Cloud : Collaboration"
+        android:layout_alignParentTop="true"
+        android:textSize="@dimen/medium_font"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/background_black"/>
+
+    <View
+        android:id="@+id/split_view"
+        android:layout_width="match_parent"
+        android:layout_height="2sp"
+        android:background="@color/background_black"
+        android:layout_below="@+id/text_title"
+        android:layout_marginTop="10sp"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"/>
+
+    <LinearLayout
+        android:id="@+id/function_root"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/split_view"
+        android:layout_above="@+id/button_start"
+        android:layout_marginTop="20sp"
+        android:layout_marginBottom="20sp"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Goal:\n\nTest user's hearing ability,\nand then adjust device automatically."
+            android:gravity="center_horizontal"
+            android:textSize="@dimen/normal_font"
+            android:textColor="@color/main_purple"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Pre-Adjustment"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="40sp"
+            android:textColor="@color/background_black"
+            android:textSize="@dimen/normal_font"/>
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/button_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20sp"
+        android:text="Start Test"
+        android:textSize="@dimen/normal_font"
+        android:background="@color/main_purple"
+        android:textColor="@color/white_opaque"/>
+
+</RelativeLayout>
