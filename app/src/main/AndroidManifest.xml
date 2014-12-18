@@ -40,6 +40,13 @@
         <activity android:name=".activity.LessonContentActivity"
             android:parentActivityName=".activity.LessonIntroductionActivity"
             android:label="Lesson"/>
+
+        <receiver android:name=".component.BatteryBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
