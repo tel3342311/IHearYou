@@ -11,6 +11,7 @@
         android:layout_alignParentTop="true"
         android:textSize="@dimen/medium_font"
         android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
         android:textColor="@color/background_black"/>
 
     <View
