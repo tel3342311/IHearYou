@@ -14,6 +14,17 @@ import com.ihy.ihearyou.R;
 import com.ihy.ihearyou.datamodel.CollaborationProcess;
 
 public class CollaborationProcessFragment extends Fragment {
+
+    public interface OnCollaborationProcessFinishListener
+    {
+        public void onFinish();
+    }
+    private OnCollaborationProcessFinishListener mListener;
+    public void setOnCollaborationProcessFinishListener(OnCollaborationProcessFinishListener listener)
+    {
+        mListener = listener;
+    }
+
     public static CollaborationProcessFragment newInstance() {
         CollaborationProcessFragment fragment = new CollaborationProcessFragment();
         return fragment;
@@ -88,7 +99,8 @@ public class CollaborationProcessFragment extends Fragment {
         }
         else
         {
-            getActivity().finish();
+            if(mListener != null)
+                mListener.onFinish();
         }
     }
 }

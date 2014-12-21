@@ -1,0 +1,51 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ihy.ihearyou.fragment.CollaborationFinalizeFragment"
+    android:layout_margin="10sp">
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Hearing Cloud : Collaboration"
+        android:layout_alignParentTop="true"
+        android:textSize="@dimen/medium_font"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:textColor="@color/background_black"/>
+
+    <View
+        android:id="@+id/split_view"
+        android:layout_width="match_parent"
+        android:layout_height="2sp"
+        android:background="@color/background_black"
+        android:layout_below="@+id/text_title"
+        android:layout_marginTop="10sp"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"/>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/image_device"
+        android:layout_below="@+id/split_view"
+        android:layout_marginTop="30sp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_launcher"
+        android:layout_above="@+id/button_finish"
+        android:layout_marginBottom="40sp"/>
+
+    <Button
+        android:id="@+id/button_finish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20sp"
+        android:text="Collaborating..."
+        android:textSize="@dimen/normal_font"
+        android:background="@color/main_purple"
+        android:textColor="@color/white_opaque"
+        android:enabled="false"/>
+
+</RelativeLayout>

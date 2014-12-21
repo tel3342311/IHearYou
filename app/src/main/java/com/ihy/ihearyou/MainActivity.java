@@ -35,6 +35,8 @@ public class MainActivity extends ActionBarActivity {
         mBtnCollaboration = (Button)findViewById(R.id.button_collaboration);
         mBtnBattery = (Button)findViewById(R.id.button_battery);
 
+
+
         mOnButtonClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
