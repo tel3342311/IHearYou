@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.ihy.ihearyou.R;
-import com.ihy.ihearyou.activity.LessonContentActivity;
 
 public class LessonContentFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
