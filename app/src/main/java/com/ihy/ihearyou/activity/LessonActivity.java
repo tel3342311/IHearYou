@@ -1,120 +1,66 @@
 package com.ihy.ihearyou.activity;
 
-import android.app.Activity;
-import android.content.Context;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.TextView;
 
-import com.ihy.ihearyou.MainActivity;
 import com.ihy.ihearyou.R;
+import com.ihy.ihearyou.fragment.LessonContentFragment;
+import com.ihy.ihearyou.fragment.LessonIntroductionFragment;
+import com.ihy.ihearyou.fragment.LessonMainFragment;
 
-import java.util.ArrayList;
-import java.util.List;
+public class LessonActivity extends ActionBarActivity implements
+        LessonMainFragment.OnFragmentInteractionListener,
+        LessonIntroductionFragment.OnFragmentInteractionListener,
+        LessonContentFragment.OnFragmentInteractionListener {
 
-public class LessonActivity extends ActionBarActivity {
-
-    ListView mListView;
-    LessonListAdapter mLessonListAdapter;
-    final static int basicCount = 3;
-    final static int interCount = 3;
-    final static int advanceConut = 3;
+    LessonMainFragment mMainFrag;
+    LessonIntroductionFragment mIntroductionFrag;
+    LessonContentFragment mContentFragment;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lesson);
-        findViews();
-        setupListView();
+        switchToMainView();
     }
 
-    private void findViews() {
-        mListView = (ListView) this.findViewById(R.id.lesson_list);
+    private void switchToMainView() {
+        mMainFrag = LessonMainFragment.newInstance();
+        FragmentManager fm = this.getFragmentManager();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        fragmentTransaction.replace(R.id.lesson_frame, mMainFrag, mMainFrag.getTag());
+        fragmentTransaction.commit();
     }
 
-    private void setupListView() {
-
-        ArrayList<String> titleList = new ArrayList<>();
-        addStringToList(titleList, R.string.basic, basicCount);
-        addStringToList(titleList, R.string.intermediate, interCount);
-        addStringToList(titleList, R.string.advance, advanceConut);
-
-        mLessonListAdapter = new LessonListAdapter(this, titleList);
-        mListView.setAdapter(mLessonListAdapter);
-        mListView.setOnItemClickListener(mOnItemClickListener);
+    private void switchToIntroductionView() {
+        mIntroductionFrag = LessonIntroductionFragment.newInstance("","");
+        FragmentManager fm = this.getFragmentManager();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        fragmentTransaction.replace(R.id.lesson_frame, mIntroductionFrag, mIntroductionFrag.getTag());
+        fragmentTransaction.commit();
     }
 
-    private void addStringToList(ArrayList list,int resID, int count) {
-        for (int i = 0; i < count; i++) {
-            list.add(String.format(this.getString(resID), i));
-        }
+
+    private void switchToContentView() {
+        mContentFragment = LessonContentFragment.newInstance("","");
+        FragmentManager fm = this.getFragmentManager();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        fragmentTransaction.replace(R.id.lesson_frame, mContentFragment);
+        fragmentTransaction.commit();
     }
 
-    private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Log.d("lesson", "onItemClick pos" +position);
-            Intent intent = new Intent(LessonActivity.this, LessonIntroductionActivity.class);
-            startActivity(intent);
-        }
-    };
-
-    public class LessonListAdapter extends BaseAdapter {
-        private Context mContext = null;
-        private LayoutInflater mInflater = null;
-        private ArrayList<String> mAdapterList;
-
-        public class ViewHolder {
-            public TextView mTitleView;
-        }
-
-        public LessonListAdapter(Context context, ArrayList<String> list) {
-            mContext = context;
-            mAdapterList = list;
-            mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        }
-
-        @Override
-        public int getCount() {
-            return mAdapterList.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return mAdapterList.get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            ViewHolder holder;
-            if (convertView == null) {
-                convertView = mInflater.inflate(R.layout.listview_lesson_item, null);
-                holder = new ViewHolder();
-                holder.mTitleView = (TextView) convertView.findViewById(R.id.lessonTitle);
-            } else {
-                holder = (ViewHolder)convertView.getTag();
-            }
-            holder.mTitleView.setText(mAdapterList.get(position));
-            convertView.setTag(holder);
-            return convertView;
+    @Override
+    public void onFragmentInteraction(Intent intent) {
+        int id = intent.getIntExtra("TAG", 0);
+        if (id == mMainFrag.getId()) {
+            switchToIntroductionView();
+        } else if (id == mIntroductionFrag.getId()) {
+            switchToContentView();
         }
     }
-
 }
 
 
