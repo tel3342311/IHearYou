@@ -1,0 +1,70 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ihy.ihearyou.reminder.AddAlarmActivity">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="100px"
+        android:background="#FF000000"
+        android:textColor="#FFFFFFFF"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:text="新增鬧鈴"/>
+
+    <TimePicker
+        android:id="@+id/timePicker"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFF0000"
+            android:text="輔助"/>
+        <RelativeLayout
+            android:id="@+id/reRL"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="重複"/>
+            <TextView
+                android:id="@+id/reTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="從不>"/>
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/black" />
+        <RelativeLayout
+            android:id="@+id/vibrateRL"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="震動強度"/>
+            <TextView
+                android:id="@+id/vibrateTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="適中>"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

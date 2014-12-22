@@ -1,0 +1,176 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ihy.ihearyou.reminder.AddCheckActivity">
+
+    <TextView
+        android:id="@+id/check_Title"
+        android:layout_width="fill_parent"
+        android:layout_height="100px"
+        android:background="#FF000000"
+        android:textColor="#FFFFFFFF"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:text="新增事項"/>
+
+    <EditText
+        android:id="@+id/check_Title_EditText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/check_Title"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="5sp"
+        android:layout_marginRight="5sp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:hint="Add Title"
+        android:singleLine="true" />
+
+    <FrameLayout
+        android:id="@+id/check_FrameLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/check_Title_EditText"
+        android:padding="5dp">
+        <EditText
+            android:id="@+id/check_Item_EditText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="24sp"
+            android:hint="Add Item"
+            android:singleLine="true"/>
+        <Button
+            android:id="@+id/check_Item_Btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="right|center_vertical"
+            android:text="Add"/>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/check_ItemsTextView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/check_FrameLayout"
+        android:layout_marginLeft="5sp"
+        android:layout_marginRight="5sp"
+        android:textSize="16sp"/>
+
+    <LinearLayout
+        android:id="@+id/L"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFF0000"
+            android:text="指定日期提醒我"/>
+        <RelativeLayout
+            android:id="@+id/check_Alarm_RL"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="鬧鈴"/>
+            <TextView
+                android:id="@+id/check_Alarm_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="2014/11/26 (週一) AM>"/>
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/black" />
+        <RelativeLayout
+            android:id="@+id/check_re_RL"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="重複"/>
+            <TextView
+                android:id="@+id/check_re_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="從不>"/>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFF0000"
+            android:text="指定位置提醒我"/>
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="位置"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text=">"/>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFF0000"
+            android:text="輔助"/>
+        <RelativeLayout
+            android:id="@+id/check_re_RL_Bottom"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="重複"/>
+            <TextView
+                android:id="@+id/check_re_TextView_Bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="從不>"/>
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/black" />
+        <RelativeLayout
+            android:id="@+id/check_Vibrate_RL"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="震動強度"/>
+            <TextView
+                android:id="@+id/check_Vibrate_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="適中>"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

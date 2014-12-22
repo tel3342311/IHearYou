@@ -17,4 +17,9 @@
     <string name="play">play</string>
     <string name="pause">pause</string>
     <string name="Confirm">Confirm</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_add_alarm">提醒</string>
+    <string name="title_activity_add_check">提醒</string>
+    <string name="title_activity_add_ticket">提醒</string>
+
 </resources>
