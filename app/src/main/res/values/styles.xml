@@ -4,6 +4,7 @@
     <color name="background_black">#FF1d1c1c</color>
     <color name="main_green">#FF77CC77</color>
     <color name="main_purple">#FF7733AA</color>
+    <color name="main_blue">#FF4444EE</color>
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">

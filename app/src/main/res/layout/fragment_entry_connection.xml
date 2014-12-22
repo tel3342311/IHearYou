@@ -1,0 +1,48 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ihy.ihearyou.fragment.EntryConnectionFragment">
+
+    <RelativeLayout
+        android:id="@+id/layout_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="40sp">
+        <TextView
+            android:id="@+id/text_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="I Hear You"
+            android:textSize="@dimen/extralarge_font"
+            android:gravity="center_horizontal"/>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Wearable Neck Ring"
+            android:gravity="center_horizontal"
+            android:layout_below="@+id/text_title"/>
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitCenter"
+        android:layout_below="@id/layout_title"
+        android:layout_marginTop="50sp"
+        android:src="@drawable/ic_launcher"
+        android:layout_above="@+id/button_connection"
+        android:layout_marginBottom="50sp"/>
+
+    <Button
+        android:id="@+id/button_connection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Connect"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40sp"
+        android:background="@color/main_blue"
+        android:textColor="@color/white_opaque"/>
+
+</RelativeLayout>
