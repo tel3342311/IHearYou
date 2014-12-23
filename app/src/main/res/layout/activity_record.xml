@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/hintLinearLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="100px"
+        android:orientation="horizontal"
+        android:background="#FF000000">
+        <TextView
+            android:id="@+id/text_conversation"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="#FFFFFFFF"
+            android:textSize="24sp"
+            android:text="對話記錄"/>
+        <TextView
+            android:id="@+id/text_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="#FF666666"
+            android:textSize="24sp"
+            android:text="通話記錄"/>
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager_container"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hintLinearLayout"/>
+
+</RelativeLayout>

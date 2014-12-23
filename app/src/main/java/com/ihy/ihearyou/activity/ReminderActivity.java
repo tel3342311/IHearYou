@@ -19,29 +19,26 @@ import com.ihy.ihearyou.reminder.TicketFragment;
 
 public class ReminderActivity extends ActionBarActivity implements android.app.ActionBar.TabListener, OnPageChangeListener {
 
-    private static final int WHITE = 0xffffffff;
-    private static final int GRAY = 0xff666666;
-
-    private ViewPager viewPager;
-    private AlarmFragment alarmFragment;
-    private CheckListFragment checkListFragment;
-    private TicketFragment ticketFragment;
-    private int currentPosition;
+    private ViewPager mViewPager;
+    private AlarmFragment mAlarmFragment;
+    private CheckListFragment mCheckListFragment;
+    private TicketFragment mTicketFragment;
+    private int mCurrentPosition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reminder);
 
-        currentPosition = 0;
+        mCurrentPosition = 0;
         getSupportActionBar().setHomeButtonEnabled(true);
-        alarmFragment = new AlarmFragment();
-        checkListFragment = new CheckListFragment();
-        ticketFragment = new TicketFragment();
+        mAlarmFragment = new AlarmFragment();
+        mCheckListFragment = new CheckListFragment();
+        mTicketFragment = new TicketFragment();
 
-        viewPager = (ViewPager)findViewById(R.id.pager);
-        viewPager.setAdapter(new HomeViewPagerAdapter(getSupportFragmentManager()));
-        viewPager.setOnPageChangeListener(this);
+        mViewPager = (ViewPager)findViewById(R.id.pager);
+        mViewPager.setAdapter(new HomeViewPagerAdapter(getSupportFragmentManager()));
+        mViewPager.setOnPageChangeListener(this);
     }
 
     @Override
@@ -71,7 +68,7 @@ public class ReminderActivity extends ActionBarActivity implements android.app.A
 
     @Override
     public void onTabSelected(android.app.ActionBar.Tab tab, FragmentTransaction ft) {
-        viewPager.setCurrentItem(tab.getPosition());
+        mViewPager.setCurrentItem(tab.getPosition());
     }
 
     @Override
@@ -91,31 +88,28 @@ public class ReminderActivity extends ActionBarActivity implements android.app.A
 
     @Override
     public void onPageSelected(int position) {
-        currentPosition = position;
+        mCurrentPosition = position;
         TextView alarm_text = (TextView)findViewById(R.id.text_alarm);
         TextView check_text = (TextView)findViewById(R.id.text_checklist);
         TextView ticket_text = (TextView)findViewById(R.id.text_ticket);
 
         switch (position) {
             case 0:
-                alarm_text.setTextColor(WHITE);
-                check_text.setTextColor(GRAY);
-                ticket_text.setTextColor(GRAY);
+                alarm_text.setTextColor(getResources().getColor(android.R.color.white));
+                check_text.setTextColor(getResources().getColor(android.R.color.darker_gray));
+                ticket_text.setTextColor(getResources().getColor(android.R.color.darker_gray));
                 break;
             case 1:
-                alarm_text.setTextColor(GRAY);
-                check_text.setTextColor(WHITE);
-                ticket_text.setTextColor(GRAY);
+                alarm_text.setTextColor(getResources().getColor(android.R.color.darker_gray));
+                check_text.setTextColor(getResources().getColor(android.R.color.white));
+                ticket_text.setTextColor(getResources().getColor(android.R.color.darker_gray));
                 break;
             case 2:
-                alarm_text.setTextColor(GRAY);
-                check_text.setTextColor(GRAY);
-                ticket_text.setTextColor(WHITE);
+                alarm_text.setTextColor(getResources().getColor(android.R.color.darker_gray));
+                check_text.setTextColor(getResources().getColor(android.R.color.darker_gray));
+                ticket_text.setTextColor(getResources().getColor(android.R.color.white));
                 break;
             default:
-                alarm_text.setTextColor(WHITE);
-                check_text.setTextColor(GRAY);
-                ticket_text.setTextColor(GRAY);
                 break;
         }
     }
@@ -126,15 +120,15 @@ public class ReminderActivity extends ActionBarActivity implements android.app.A
     }
 
     private void addContent() {
-        switch (currentPosition) {
+        switch (mCurrentPosition) {
             case 0:
-                alarmFragment.sendAddContentIntent();
+                mAlarmFragment.sendAddContentIntent();
                 break;
             case 1:
-                checkListFragment.sendAddContentIntent();
+                mCheckListFragment.sendAddContentIntent();
                 break;
             case 2:
-                ticketFragment.sendAddContentIntent();
+                mTicketFragment.sendAddContentIntent();
                 break;
             default:
                 break;
@@ -149,15 +143,15 @@ public class ReminderActivity extends ActionBarActivity implements android.app.A
         }
 
         @Override
-        public Fragment getItem(int posiotn) {
+        public Fragment getItem(int position) {
             // TODO Auto-generated method stub
-            switch (posiotn) {
+            switch (position) {
                 case 0:
-                    return alarmFragment;
+                    return mAlarmFragment;
                 case 1:
-                    return checkListFragment;
+                    return mCheckListFragment;
                 case 2:
-                    return ticketFragment;
+                    return mTicketFragment;
             }
             return null;
         }
