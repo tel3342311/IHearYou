@@ -1,0 +1,88 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ihy.ihearyou.fragment.CollaborationProcessFragment"
+    android:layout_margin="10sp">
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="High Frequency Test(Left)"
+        android:layout_alignParentTop="true"
+        android:textSize="35sp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:textColor="@color/background_black"/>
+
+    <TextView
+        android:id="@+id/text_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click play button and check if you could hear the sound."
+        android:textSize="@dimen/normal_font"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:textColor="@color/background_black"
+        android:layout_below="@+id/text_title"
+        android:layout_marginTop="40sp"/>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/text_description"
+        android:layout_marginTop="50sp"
+        android:layout_centerHorizontal="true">
+        <Button
+            android:id="@+id/button_no"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:background="@color/background_black"
+            style="?android:attr/borderlessButtonStyle"
+            android:text="Can't hear"
+            android:textColor="@color/white_opaque"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/button_play"
+            android:layout_toStartOf="@+id/button_play"
+            android:layout_marginRight="40sp"/>
+
+        <Button
+            android:id="@+id/button_play"
+            android:layout_width="80sp"
+            android:layout_height="80sp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:background="@color/background_black"
+            style="?android:attr/borderlessButtonStyle"
+            android:text="Play"
+            android:textColor="@color/white_opaque"
+            android:layout_centerInParent="true"
+            />
+
+        <Button
+            android:id="@+id/button_yes"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:background="@color/background_black"
+            style="?android:attr/borderlessButtonStyle"
+            android:text="Can hear"
+            android:textColor="@color/white_opaque"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/button_play"
+            android:layout_toEndOf="@+id/button_play"
+            android:layout_marginLeft="40sp"/>
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="40sp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40sp"
+        android:layout_marginRight="20sp"
+        android:layout_marginLeft="20sp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:progress="25"/>
+
+</RelativeLayout>

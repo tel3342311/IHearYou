@@ -1,6 +1,7 @@
 package com.ihy.ihearyou;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
@@ -12,6 +13,7 @@ import com.ihy.ihearyou.activity.ConversationActivity;
 import com.ihy.ihearyou.activity.LessonActivity;
 import com.ihy.ihearyou.activity.RecordActivity;
 import com.ihy.ihearyou.activity.ReminderActivity;
+import com.ihy.ihearyou.component.BatteryBroadcastReceiver;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -19,6 +21,7 @@ public class MainActivity extends ActionBarActivity {
     Button mBtnConversation, mBtnLesson, mBtnReminder, mBtnRecord, mBtnCollaboration, mBtnBattery;
 
     View.OnClickListener mOnButtonClickListener = null;
+    BatteryBroadcastReceiver mPowerReceiver = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,8 @@ public class MainActivity extends ActionBarActivity {
         mBtnRecord = (Button)findViewById(R.id.button_record);
         mBtnCollaboration = (Button)findViewById(R.id.button_collaboration);
         mBtnBattery = (Button)findViewById(R.id.button_battery);
+
+
 
         mOnButtonClickListener = new View.OnClickListener() {
             @Override
@@ -74,5 +79,30 @@ public class MainActivity extends ActionBarActivity {
         mBtnReminder.setOnClickListener(mOnButtonClickListener);
         mBtnCollaboration.setOnClickListener(mOnButtonClickListener);
         mBtnBattery.setOnClickListener(mOnButtonClickListener);
+    }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        mPowerReceiver = new BatteryBroadcastReceiver();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
+        registerReceiver(mPowerReceiver, intentFilter);
+
+        mPowerReceiver.setBatteryStatusListener(new BatteryBroadcastReceiver.OnBatteryStatusListener() {
+            @Override
+            public void onPowerStatusChanged(boolean chargePlugged, float percentage) {
+                mBtnBattery.setText("Battery-" + percentage * 100.f + "%");
+            }
+        });
+    }
+
+    @Override
+    protected void onPause()
+    {
+        super.onPause();
+        unregisterReceiver(mPowerReceiver);
+        mPowerReceiver = null;
     }
 }

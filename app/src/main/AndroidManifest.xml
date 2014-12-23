@@ -15,6 +15,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".activity.ConversationActivity"
             android:label="Conversation"
@@ -40,14 +41,6 @@
             android:label="Battery"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".activity.LessonIntroductionActivity"
-            android:label="Lesson"
-            android:parentActivityName=".activity.LessonActivity" />
-        <activity
-            android:name=".activity.LessonContentActivity"
-            android:label="Lesson"
-            android:parentActivityName=".activity.LessonIntroductionActivity" />
-        <activity
             android:name=".reminder.AddAlarmActivity"
             android:label="@string/title_activity_add_alarm" >
         </activity>
@@ -59,6 +52,13 @@
             android:name=".reminder.AddTicketActivity"
             android:label="@string/title_activity_add_check" >
         </activity>
+
+        <receiver android:name=".component.BatteryBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

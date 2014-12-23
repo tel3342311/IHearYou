@@ -1,5 +1,10 @@
 <resources>
 
+    <color name="white_opaque">#FFFFFFFF</color>
+    <color name="background_black">#FF1d1c1c</color>
+    <color name="main_green">#FF77CC77</color>
+    <color name="main_purple">#FF7733AA</color>
+
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
