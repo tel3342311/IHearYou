@@ -3,7 +3,7 @@
     package="com.ihy.ihearyou" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="11"
         android:targetSdkVersion="18" />
 
     <application
