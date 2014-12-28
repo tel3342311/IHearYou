@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -13,6 +16,7 @@ import com.ihy.ihearyou.activity.ConversationActivity;
 import com.ihy.ihearyou.activity.LessonActivity;
 import com.ihy.ihearyou.activity.RecordActivity;
 import com.ihy.ihearyou.activity.ReminderActivity;
+import com.ihy.ihearyou.activity.VoiceReconizerActivity;
 import com.ihy.ihearyou.component.BatteryBroadcastReceiver;
 
 
@@ -104,5 +108,23 @@ public class MainActivity extends ActionBarActivity {
         super.onPause();
         unregisterReceiver(mPowerReceiver);
         mPowerReceiver = null;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_speech_reconizer:
+                Intent intent = new Intent(MainActivity.this, VoiceReconizerActivity.class);
+                startActivity(intent);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

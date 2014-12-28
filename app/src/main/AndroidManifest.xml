@@ -62,6 +62,10 @@
             android:name=".reminder.AddTicketActivity"
             android:label="@string/title_activity_add_check" >
         </activity>
+        <activity
+            android:name=".activity.VoiceReconizerActivity"
+            android:label="@string/title_activity_voice_reconizer" >
+        </activity>
 
         <receiver android:name=".component.BatteryBroadcastReceiver">
             <intent-filter>
@@ -70,5 +74,6 @@
             </intent-filter>
         </receiver>
     </application>
-
+    <!-- for speech recognizer!-->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 </manifest>

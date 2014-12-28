@@ -23,5 +23,6 @@
     <string name="title_activity_add_alarm">提醒</string>
     <string name="title_activity_add_check">提醒</string>
     <string name="title_activity_add_ticket">提醒</string>
+    <string name="title_activity_voice_reconizer">VoiceReconizerActivity</string>
 
 </resources>
