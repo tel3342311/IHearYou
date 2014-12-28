@@ -24,5 +24,8 @@
     <string name="title_activity_add_check">提醒</string>
     <string name="title_activity_add_ticket">提醒</string>
     <string name="title_activity_voice_reconizer">VoiceReconizerActivity</string>
+    <string name="title_interpreters">Interpreter</string>
+    <string name="title_video_recording">Video</string>
+    <string name="title_phone_calls">Phone</string>
 
 </resources>
