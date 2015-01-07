@@ -63,8 +63,8 @@
             android:label="@string/title_activity_add_check" >
         </activity>
         <activity
-            android:name=".activity.VoiceReconizerActivity"
-            android:label="@string/title_activity_voice_reconizer" >
+            android:name=".activity.VoiceRecognizerActivity"
+            android:label="@string/title_activity_voice_recognizer" >
         </activity>
 
         <receiver android:name=".component.BatteryBroadcastReceiver">

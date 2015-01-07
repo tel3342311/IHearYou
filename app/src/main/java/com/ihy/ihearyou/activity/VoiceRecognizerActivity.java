@@ -21,7 +21,7 @@ import com.ihy.ihearyou.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VoiceReconizerActivity extends ActionBarActivity implements RecognitionListener{
+public class VoiceRecognizerActivity extends ActionBarActivity implements RecognitionListener{
 
     Button mBtnReconizer;
     TextView mTextOutput;
@@ -55,7 +55,7 @@ public class VoiceReconizerActivity extends ActionBarActivity implements Recogni
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_voice_reconizer);
+        setContentView(R.layout.activity_voice_recognizer);
         findViews();
 
 
@@ -70,7 +70,7 @@ public class VoiceReconizerActivity extends ActionBarActivity implements Recogni
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_voice_reconizer, menu);
+        getMenuInflater().inflate(R.menu.menu_voice_recognizer, menu);
         return true;
     }
 

@@ -95,7 +95,7 @@ public class LessonActivity extends ActionBarActivity implements
     }
 
     private void switchToIntroductionView() {
-        mIntroductionFrag = LessonIntroductionFragment.newInstance("","");
+        mIntroductionFrag = LessonIntroductionFragment.newInstance();
         FragmentManager fm = this.getFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fragmentTransaction.replace(R.id.lesson_frame, mIntroductionFrag, mIntroductionFrag.getTag());
@@ -103,7 +103,7 @@ public class LessonActivity extends ActionBarActivity implements
     }
 
     private void switchToContentView() {
-        mContentFragment = LessonContentFragment.newInstance("","");
+        mContentFragment = LessonContentFragment.newInstance();
         FragmentManager fm = this.getFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fragmentTransaction.replace(R.id.lesson_frame, mContentFragment);
@@ -111,7 +111,7 @@ public class LessonActivity extends ActionBarActivity implements
     }
 
     private void switchToSearchView() {
-        mSearchResult = LessonSearchResult.newInstance("","");
+        mSearchResult = LessonSearchResult.newInstance();
         FragmentManager fm = this.getFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fragmentTransaction.replace(R.id.lesson_frame, mSearchResult);

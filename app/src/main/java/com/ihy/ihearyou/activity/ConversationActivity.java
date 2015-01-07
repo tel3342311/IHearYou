@@ -1,21 +1,18 @@
 package com.ihy.ihearyou.activity;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
-import android.view.animation.TranslateAnimation;
 import android.widget.TextView;
 
 import com.ihy.ihearyou.R;
-import com.ihy.ihearyou.fragment.InterperterFragment;
+import com.ihy.ihearyou.fragment.InterpreterFragment;
 import com.ihy.ihearyou.fragment.PhoneCallFragment;
 import com.ihy.ihearyou.fragment.VideoRecordFragment;
 
@@ -23,12 +20,12 @@ public class ConversationActivity extends ActionBarActivity implements
         android.app.ActionBar.TabListener,
         ViewPager.OnPageChangeListener,
         VideoRecordFragment.OnFragmentInteractionListener,
-        InterperterFragment.OnFragmentInteractionListener,
+        InterpreterFragment.OnFragmentInteractionListener,
         PhoneCallFragment.OnFragmentInteractionListener{
     private ViewPager mViewPager;
     private int mCurrentPosition;
     private final static int FRAGMENT_COUNT = 3;
-    private InterperterFragment mInterperterFragment;
+    private InterpreterFragment mInterpreterFragment;
     private VideoRecordFragment mVideoRecordFragment;
     private PhoneCallFragment mPhoneCallFragment;
 
@@ -41,9 +38,9 @@ public class ConversationActivity extends ActionBarActivity implements
 
     private void findViews() {
 
-        mInterperterFragment = InterperterFragment.newInstance("","");
-        mVideoRecordFragment = VideoRecordFragment.newInstance("","");
-        mPhoneCallFragment = PhoneCallFragment.newInstance("","");
+        mInterpreterFragment = InterpreterFragment.newInstance();
+        mVideoRecordFragment = VideoRecordFragment.newInstance();
+        mPhoneCallFragment = PhoneCallFragment.newInstance();
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(new HomeViewPagerAdapter(getSupportFragmentManager()));
         mViewPager.setOnPageChangeListener(this);
@@ -118,7 +115,7 @@ public class ConversationActivity extends ActionBarActivity implements
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return mInterperterFragment;
+                    return mInterpreterFragment;
                 case 1:
                     return mVideoRecordFragment;
                 case 2:

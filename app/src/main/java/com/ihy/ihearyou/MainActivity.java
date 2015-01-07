@@ -16,7 +16,7 @@ import com.ihy.ihearyou.activity.ConversationActivity;
 import com.ihy.ihearyou.activity.LessonActivity;
 import com.ihy.ihearyou.activity.RecordActivity;
 import com.ihy.ihearyou.activity.ReminderActivity;
-import com.ihy.ihearyou.activity.VoiceReconizerActivity;
+import com.ihy.ihearyou.activity.VoiceRecognizerActivity;
 import com.ihy.ihearyou.component.BatteryBroadcastReceiver;
 
 
@@ -121,7 +121,7 @@ public class MainActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_speech_reconizer:
-                Intent intent = new Intent(MainActivity.this, VoiceReconizerActivity.class);
+                Intent intent = new Intent(MainActivity.this, VoiceRecognizerActivity.class);
                 startActivity(intent);
                 break;
         }
