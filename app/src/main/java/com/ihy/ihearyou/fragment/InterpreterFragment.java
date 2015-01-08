@@ -32,6 +32,7 @@ public class InterpreterFragment extends Fragment implements RecognitionListener
     private Boolean mIsListening = false;
     private ArrayList<String> mSpeechList = new ArrayList<String>();
     private SpeechBubbleAdapter mSpeechBubbleAdapter;
+    private Object mRecognizerLock = new Object();
 
     public static InterpreterFragment newInstance() {
         InterpreterFragment fragment = new InterpreterFragment();
@@ -110,6 +111,16 @@ public class InterpreterFragment extends Fragment implements RecognitionListener
     @Override
     public void onError(int error) {
         Log.d("Speech", "onError :" + error);
+        switch (error) {
+            case SpeechRecognizer.ERROR_SPEECH_TIMEOUT:
+            case SpeechRecognizer.ERROR_NO_MATCH:
+            case SpeechRecognizer.ERROR_AUDIO:
+                startListening();
+                break;
+            case SpeechRecognizer.ERROR_RECOGNIZER_BUSY:
+                resetRecognizer();
+                break;
+        }
     }
 
     @Override
@@ -128,8 +139,8 @@ public class InterpreterFragment extends Fragment implements RecognitionListener
             }
         }
         mSpeechList.add(ret.get(idx));
-        mIsListening = false;
         mSpeechBubbleAdapter.notifyDataSetChanged();
+        startListening();
     }
 
     @Override
@@ -163,36 +174,71 @@ public class InterpreterFragment extends Fragment implements RecognitionListener
     private View.OnClickListener mOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if (mSpeechRecognizer != null && !mIsListening) {
-                Intent recognizerIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-                recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-                recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "cmn-Hant-TW");
-                // accept partial results if they come
-                recognizerIntent.putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, true);
-                recognizerIntent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE, "com.ihy.ihearyou");
-                mSpeechRecognizer.startListening(recognizerIntent);
-                mIsListening = true;
-            } else if (mIsListening == true) {
-                mSpeechRecognizer.stopListening();
-                mIsListening = false;
+            if (mSpeechRecognizer == null)
+                return;
+            if (!mIsListening) {
+                startListening();
+                mBtnRecord.setText(R.string.end_conversation);
+            } else  {
+                stopListening();
+                resetRecognizer();
+                mBtnRecord.setText(R.string.start_conversation);
             }
         }
     };
 
-    private void startListen() {
-        Intent recognizerIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-        recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "cmn-Hant-TW");
-        // accept partial results if they come
-        recognizerIntent.putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, true);
-        recognizerIntent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE, "com.ihy.ihearyou");
-        mSpeechRecognizer.startListening(recognizerIntent);
-        mIsListening = true;
+    private void startListening() {
+        synchronized (mRecognizerLock) {
+            Intent recognizerIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+            recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+            recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "cmn-Hant-TW");
+            // accept partial results if they come
+            recognizerIntent.putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, true);
+            recognizerIntent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE, "com.ihy.ihearyou");
+            mSpeechRecognizer.startListening(recognizerIntent);
+            mIsListening = true;
+        }
     }
 
     private void stopListening() {
-        mSpeechRecognizer.stopListening();
-        mIsListening = false;
+        synchronized (mRecognizerLock) {
+            mSpeechRecognizer.stopListening();
+            mIsListening = false;
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mSpeechRecognizer != null) {
+            stopListening();
+            mSpeechRecognizer.destroy();
+            mBtnRecord.setText(R.string.start_conversation);
+        }
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (!isVisibleToUser) {
+            if (mSpeechRecognizer != null) {
+                stopListening();
+                mSpeechRecognizer.destroy();
+                mBtnRecord.setText(R.string.start_conversation);
+            }
+        } else {
+            if (mSpeechRecognizer != null) {
+                resetRecognizer();
+            }
+        }
+    }
+
+    private void resetRecognizer() {
+        synchronized (mRecognizerLock) {
+            mSpeechRecognizer.destroy();
+            mSpeechRecognizer = SpeechRecognizer.createSpeechRecognizer(getActivity().getApplicationContext());
+            mSpeechRecognizer.setRecognitionListener(this);
+        }
     }
     private void setupListView() {
         mSpeechBubbleAdapter = new SpeechBubbleAdapter(getActivity(), mSpeechList);
