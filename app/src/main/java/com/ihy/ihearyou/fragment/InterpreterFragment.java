@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
+import android.speech.tts.TextToSpeech;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,7 +20,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.ihy.ihearyou.R;
+import com.ihy.ihearyou.datamodel.ConversationRepository;
+import com.ihy.ihearyou.datamodel.SentenceData;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class InterpreterFragment extends Fragment implements RecognitionListener {
@@ -33,7 +40,8 @@ public class InterpreterFragment extends Fragment implements RecognitionListener
     private ArrayList<String> mSpeechList = new ArrayList<String>();
     private SpeechBubbleAdapter mSpeechBubbleAdapter;
     private Object mRecognizerLock = new Object();
-
+    private ConversationRepository mConversationRepository;
+    byte[] mBuffer;
     public static InterpreterFragment newInstance() {
         InterpreterFragment fragment = new InterpreterFragment();
         Bundle args = new Bundle();
@@ -101,6 +109,7 @@ public class InterpreterFragment extends Fragment implements RecognitionListener
     @Override
     public void onBufferReceived(byte[] buffer) {
         Log.d("Speech", "onBufferReceived");
+        mBuffer = buffer;
     }
 
     @Override
@@ -139,8 +148,27 @@ public class InterpreterFragment extends Fragment implements RecognitionListener
             }
         }
         mSpeechList.add(ret.get(idx));
+        if (mConversationRepository != null) {
+            long date = System.currentTimeMillis();
+            String strFile = "/sdcard/mysounds/"+date+".wav";
+            saveSrc(mBuffer, strFile);
+            SentenceData sentenceData = new SentenceData(ret.get(idx), strFile);
+            mConversationRepository.addSentence(sentenceData, date);
+        }
         mSpeechBubbleAdapter.notifyDataSetChanged();
         startListening();
+    }
+
+    private void saveSrc(byte[] mBuffer, String filePath) {
+        File f = new File(filePath);
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(f);
+            fos.write(mBuffer);
+            fos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -169,6 +197,7 @@ public class InterpreterFragment extends Fragment implements RecognitionListener
         setupListView();
         mBtnRecord.setEnabled(isSupport);
         mBtnRecord.setOnClickListener(mOnClickListener);
+        mConversationRepository = ConversationRepository.getInstance(getActivity());
     }
 
     private View.OnClickListener mOnClickListener = new View.OnClickListener() {
