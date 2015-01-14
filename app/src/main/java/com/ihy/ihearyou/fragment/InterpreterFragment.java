@@ -27,6 +27,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class InterpreterFragment extends Fragment implements RecognitionListener {
@@ -149,8 +150,9 @@ public class InterpreterFragment extends Fragment implements RecognitionListener
         }
         mSpeechList.add(ret.get(idx));
         if (mConversationRepository != null) {
-            long date = System.currentTimeMillis();
-            String strFile = "/sdcard/mysounds/"+date+".wav";
+            SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMdd");
+            long date = sdf.getCalendar().getTimeInMillis();
+            String strFile = "/sdcard/mysounds/"+System.currentTimeMillis()+".wav";
             saveSrc(mBuffer, strFile);
             SentenceData sentenceData = new SentenceData(ret.get(idx), strFile);
             mConversationRepository.addSentence(sentenceData, date);
@@ -198,6 +200,7 @@ public class InterpreterFragment extends Fragment implements RecognitionListener
         mBtnRecord.setEnabled(isSupport);
         mBtnRecord.setOnClickListener(mOnClickListener);
         mConversationRepository = ConversationRepository.getInstance(getActivity());
+        mConversationRepository.load();
     }
 
     private View.OnClickListener mOnClickListener = new View.OnClickListener() {
@@ -243,6 +246,7 @@ public class InterpreterFragment extends Fragment implements RecognitionListener
             stopListening();
             mSpeechRecognizer.destroy();
             mBtnRecord.setText(R.string.start_conversation);
+            mConversationRepository.save();
         }
     }
 
