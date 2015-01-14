@@ -47,6 +47,7 @@ public class ConversationRepository {
         {
             ConversationData newConversation = new ConversationData(date);
             newConversation.addSentence(sentence);
+            mConversationDataList.add(newConversation);
         }
     }
 
