@@ -51,6 +51,11 @@ public class ConversationRepository {
         }
     }
 
+    public List<ConversationData> getConversationDataList()
+    {
+        return mConversationDataList;
+    }
+
     public void load()
     {
         //by record type: sentence or video...

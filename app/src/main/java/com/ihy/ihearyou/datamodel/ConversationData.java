@@ -23,4 +23,9 @@ public class ConversationData implements Serializable{
     {
         mSentenceDataList.add(sentence);
     }
+
+    public List<SentenceData> getSentenceDataList()
+    {
+        return mSentenceDataList;
+    }
 }

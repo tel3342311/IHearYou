@@ -5,10 +5,19 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/nodata_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/normal_font"
         android:text="No conversation records"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true"
+        android:visibility="invisible"/>
+
+    <ListView
+        android:id="@+id/record_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+    </ListView>
 
 </RelativeLayout>

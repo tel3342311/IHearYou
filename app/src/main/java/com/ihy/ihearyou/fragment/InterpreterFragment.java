@@ -150,7 +150,7 @@ public class InterpreterFragment extends Fragment implements RecognitionListener
         }
         mSpeechList.add(ret.get(idx));
         if (mConversationRepository != null) {
-            SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMdd");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
             long date = sdf.getCalendar().getTimeInMillis();
             String strFile = "/sdcard/mysounds/"+System.currentTimeMillis()+".wav";
             saveSrc(mBuffer, strFile);
