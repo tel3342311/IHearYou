@@ -20,4 +20,29 @@
 
     </ListView>
 
+    <RelativeLayout
+        android:id="@+id/record_show_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffeeeeee"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/play_record_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ready to play record"
+            android:textSize="24sp"
+            android:background="@drawable/text_border"
+            android:layout_centerInParent="true"/>
+
+        <Button
+            android:id="@+id/play_record_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Play"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20sp"/>
+    </RelativeLayout>
+
 </RelativeLayout>

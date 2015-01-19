@@ -10,6 +10,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.widget.TextView;
 
 import com.ihy.ihearyou.R;
+import com.ihy.ihearyou.datamodel.ConversationData;
 import com.ihy.ihearyou.fragment.RecordConversationFragment;
 import com.ihy.ihearyou.fragment.RecordPhoneFragment;
 
@@ -18,6 +19,7 @@ public class RecordActivity extends ActionBarActivity {
     private ViewPager mViewPager;
     private TextView mTextConversation, mTextPhone;
 
+    private ContentPager mContentPager;
     private int mCurrentPosition = 0;
 
     @Override
@@ -28,10 +30,12 @@ public class RecordActivity extends ActionBarActivity {
         mTextConversation = (TextView)findViewById(R.id.text_conversation);
         mTextPhone = (TextView)findViewById(R.id.text_phone);
         mViewPager = (ViewPager)findViewById(R.id.pager_container);
-        mViewPager.setAdapter(new ContentPager(getSupportFragmentManager()));
+        mContentPager = new ContentPager(getSupportFragmentManager());
+        mViewPager.setAdapter(mContentPager);
         mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
             }
 
             @Override
@@ -56,6 +60,15 @@ public class RecordActivity extends ActionBarActivity {
         });
     }
 
+    @Override
+    public void onBackPressed()
+    {
+        if(mContentPager.onBackPressed())
+            return;
+        else
+            super.onBackPressed();
+    }
+
     public class ContentPager extends FragmentPagerAdapter
     {
         RecordConversationFragment mConversationFragment;
@@ -77,6 +90,13 @@ public class RecordActivity extends ActionBarActivity {
         @Override
         public int getCount() {
             return 2;
+        }
+
+        public boolean onBackPressed()
+        {
+            if(mCurrentPosition == 0)
+                return mConversationFragment.back();
+            return false;
         }
     }
 }
