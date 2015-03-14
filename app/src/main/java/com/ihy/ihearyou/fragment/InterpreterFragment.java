@@ -16,6 +16,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -35,7 +37,8 @@ public class InterpreterFragment extends Fragment implements RecognitionListener
     private OnFragmentInteractionListener mListener;
     private View mRootView;
     private ListView mListView;
-    private Button mBtnRecord;
+    private ImageView mBtnRecord;
+    private ImageView mBtnStop;
     private SpeechRecognizer mSpeechRecognizer;
     private Boolean mIsListening = false;
     private ArrayList<String> mSpeechList = new ArrayList<String>();
@@ -43,6 +46,12 @@ public class InterpreterFragment extends Fragment implements RecognitionListener
     private Object mRecognizerLock = new Object();
     private ConversationRepository mConversationRepository;
     byte[] mBuffer;
+    private ImageView mAvatar_a;
+    private ImageView mAvatar_b;
+    private ImageView mAvatar_c;
+    private ImageView mAvatar_d;
+    private ArrayList<ImageView> avatar_List = new ArrayList<>();
+
     public static InterpreterFragment newInstance() {
         InterpreterFragment fragment = new InterpreterFragment();
         Bundle args = new Bundle();
@@ -64,8 +73,17 @@ public class InterpreterFragment extends Fragment implements RecognitionListener
     }
 
     private void findViews() {
-        mBtnRecord = (Button) mRootView.findViewById(R.id.record_btn);
+        mBtnRecord = (ImageView) mRootView.findViewById(R.id.record_btn);
+        mBtnStop = (ImageView) mRootView.findViewById(R.id.stop_btn);
         mListView = (ListView) mRootView.findViewById(R.id.speech_list);
+        mAvatar_a = (ImageView) mRootView.findViewById(R.id.person_a);
+        mAvatar_b = (ImageView) mRootView.findViewById(R.id.person_b);
+        mAvatar_c = (ImageView) mRootView.findViewById(R.id.person_c);
+        mAvatar_d = (ImageView) mRootView.findViewById(R.id.person_d);
+        avatar_List.add(mAvatar_a);
+        avatar_List.add(mAvatar_b);
+        avatar_List.add(mAvatar_c);
+        avatar_List.add(mAvatar_d);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -157,6 +175,7 @@ public class InterpreterFragment extends Fragment implements RecognitionListener
             SentenceData sentenceData = new SentenceData(ret.get(idx), strFile);
             mConversationRepository.addSentence(sentenceData, date);
         }
+        show_next_avatar();
         mSpeechBubbleAdapter.notifyDataSetChanged();
         startListening();
     }
@@ -199,6 +218,8 @@ public class InterpreterFragment extends Fragment implements RecognitionListener
         setupListView();
         mBtnRecord.setEnabled(isSupport);
         mBtnRecord.setOnClickListener(mOnClickListener);
+        mBtnStop.setEnabled(isSupport);
+        mBtnRecord.setOnClickListener(mOnClickListener);
         mConversationRepository = ConversationRepository.getInstance(getActivity());
         mConversationRepository.load();
     }
@@ -210,11 +231,13 @@ public class InterpreterFragment extends Fragment implements RecognitionListener
                 return;
             if (!mIsListening) {
                 startListening();
-                mBtnRecord.setText(R.string.end_conversation);
+                mBtnRecord.setVisibility(View.INVISIBLE);
+                mBtnStop.setVisibility(View.VISIBLE);
             } else  {
                 stopListening();
                 resetRecognizer();
-                mBtnRecord.setText(R.string.start_conversation);
+                mBtnRecord.setVisibility(View.VISIBLE);
+                mBtnStop.setVisibility(View.INVISIBLE);
             }
         }
     };
@@ -245,7 +268,8 @@ public class InterpreterFragment extends Fragment implements RecognitionListener
         if (mSpeechRecognizer != null) {
             stopListening();
             mSpeechRecognizer.destroy();
-            mBtnRecord.setText(R.string.start_conversation);
+            mBtnRecord.setVisibility(View.VISIBLE);
+            mBtnStop.setVisibility(View.INVISIBLE);
             mConversationRepository.save();
         }
     }
@@ -257,7 +281,8 @@ public class InterpreterFragment extends Fragment implements RecognitionListener
             if (mSpeechRecognizer != null) {
                 stopListening();
                 mSpeechRecognizer.destroy();
-                mBtnRecord.setText(R.string.start_conversation);
+                mBtnRecord.setVisibility(View.VISIBLE);
+                mBtnStop.setVisibility(View.INVISIBLE);
             }
         } else {
             if (mSpeechRecognizer != null) {
@@ -321,6 +346,17 @@ public class InterpreterFragment extends Fragment implements RecognitionListener
             holder.mTitleView.setText(mAdapterList.get(position));
             convertView.setTag(holder);
             return convertView;
+        }
+    }
+
+    private void show_next_avatar() {
+        if (avatar_List.size() > 0) {
+            for (ImageView imageView : avatar_List) {
+                if (imageView.getVisibility() == View.INVISIBLE) {
+                    imageView.setVisibility(View.VISIBLE);
+                    break;
+                }
+            }
         }
     }
 }
