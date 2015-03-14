@@ -116,15 +116,4 @@ public class MainActivity extends ActionBarActivity {
         inflater.inflate(R.menu.menu_main, menu);
         return super.onCreateOptionsMenu(menu);
     }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_speech_reconizer:
-                Intent intent = new Intent(MainActivity.this, VoiceRecognizerActivity.class);
-                startActivity(intent);
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }
