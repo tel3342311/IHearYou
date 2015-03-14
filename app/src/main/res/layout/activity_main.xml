@@ -3,14 +3,16 @@
     android:layout_height="match_parent"
     android:padding="0dp"
     tools:context=".MainActivity"
-    android:background="#ff009900">
+    android:background="#ff94ab32">
 
     <LinearLayout
         android:id="@+id/top_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:paddingTop="10sp"
+        android:paddingBottom="10sp">
         <ImageView
             android:layout_width="40sp"
             android:layout_height="40sp"
@@ -20,22 +22,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="耳目譯新"
-            android:textSize="30sp"
+            android:textSize="26sp"
             android:textColor="@color/white_opaque"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:paddingLeft="10sp"/>
     </LinearLayout>
 
     <FrameLayout
         android:id="@+id/button_frame"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="#ff99cc33"
+        android:background="#ffa5c028"
         android:layout_below="@+id/top_layout"
         android:orientation="vertical"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:clipChildren="false">
+        android:layout_alignParentBottom="true">
 
         <GridLayout
             android:id="@+id/button_grid"
@@ -45,13 +47,16 @@
             android:rowCount="3"
             android:columnCount="2"
             android:transformPivotX="0dp"
-            android:transformPivotY="0dp">
+            android:transformPivotY="0dp"
+            android:paddingTop="10sp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="10sp">
+                android:paddingLeft="20sp"
+                android:paddingRight="20sp"
+                android:paddingBottom="10sp">
                 <Button
                     android:id="@+id/button_conversation"
                     android:layout_width="80sp"
@@ -70,7 +75,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="10sp">
+                android:paddingLeft="20sp"
+                android:paddingRight="20sp"
+                android:paddingBottom="10sp">
                 <Button
                     android:id="@+id/button_lesson"
                     android:layout_width="80sp"
@@ -89,7 +96,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="10sp">
+                android:paddingLeft="20sp"
+                android:paddingRight="20sp"
+                android:paddingBottom="10sp">
                 <Button
                     android:id="@+id/button_reminder"
                     android:layout_width="80sp"
@@ -108,7 +117,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="10sp">
+                android:paddingLeft="20sp"
+                android:paddingRight="20sp"
+                android:paddingBottom="10sp">
                 <Button
                     android:id="@+id/button_record"
                     android:layout_width="80sp"
@@ -127,7 +138,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="10sp">
+                android:paddingLeft="20sp"
+                android:paddingRight="20sp"
+                android:paddingBottom="10sp">
                 <Button
                     android:id="@+id/button_battery"
                     android:layout_width="80sp"
@@ -146,7 +159,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="10sp">
+                android:paddingLeft="20sp"
+                android:paddingRight="20sp"
+                android:paddingBottom="10sp">
                 <Button
                     android:id="@+id/button_collaboration"
                     android:layout_width="80sp"

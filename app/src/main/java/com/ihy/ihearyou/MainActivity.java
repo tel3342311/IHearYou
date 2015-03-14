@@ -38,6 +38,8 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getSupportActionBar().hide();
+
         mBtnConversation = (Button)findViewById(R.id.button_conversation);
         mBtnLesson = (Button)findViewById(R.id.button_lesson);
         mBtnReminder = (Button)findViewById(R.id.button_reminder);
@@ -99,7 +101,7 @@ public class MainActivity extends ActionBarActivity {
 
                 float sx = (float)mBtnFrame.getWidth() / (float)mBtnGrid.getWidth();
                 float sy = (float)mBtnFrame.getHeight() / (float)mBtnGrid.getHeight();
-                mBtnGrid.setScaleX(sx * 0.8f);
+                mBtnGrid.setScaleX(sx);
                 mBtnGrid.setScaleY(sy);
             }
         });
