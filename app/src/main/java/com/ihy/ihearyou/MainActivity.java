@@ -8,7 +8,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.GridLayout;
 
 import com.ihy.ihearyou.activity.BatteryActivity;
 import com.ihy.ihearyou.activity.CollaborationActivity;
@@ -23,6 +26,9 @@ import com.ihy.ihearyou.component.BatteryBroadcastReceiver;
 public class MainActivity extends ActionBarActivity {
 
     Button mBtnConversation, mBtnLesson, mBtnReminder, mBtnRecord, mBtnCollaboration, mBtnBattery;
+
+    GridLayout mBtnGrid;
+    FrameLayout mBtnFrame;
 
     View.OnClickListener mOnButtonClickListener = null;
     BatteryBroadcastReceiver mPowerReceiver = null;
@@ -83,6 +89,20 @@ public class MainActivity extends ActionBarActivity {
         mBtnReminder.setOnClickListener(mOnButtonClickListener);
         mBtnCollaboration.setOnClickListener(mOnButtonClickListener);
         mBtnBattery.setOnClickListener(mOnButtonClickListener);
+
+        mBtnGrid = (GridLayout)findViewById(R.id.button_grid);
+        mBtnFrame = (FrameLayout)findViewById(R.id.button_frame);
+
+        mBtnFrame.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+
+                float sx = (float)mBtnFrame.getWidth() / (float)mBtnGrid.getWidth();
+                float sy = (float)mBtnFrame.getHeight() / (float)mBtnGrid.getHeight();
+                mBtnGrid.setScaleX(sx * 0.8f);
+                mBtnGrid.setScaleY(sy);
+            }
+        });
     }
 
     @Override
@@ -97,7 +117,7 @@ public class MainActivity extends ActionBarActivity {
         mPowerReceiver.setBatteryStatusListener(new BatteryBroadcastReceiver.OnBatteryStatusListener() {
             @Override
             public void onPowerStatusChanged(boolean chargePlugged, float percentage) {
-                mBtnBattery.setText("Battery-" + percentage * 100.f + "%");
+                //mBtnBattery.setText("Battery-" + percentage * 100.f + "%");
             }
         });
     }
