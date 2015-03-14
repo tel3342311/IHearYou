@@ -4,44 +4,36 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
         android:layout_alignParentTop="true"
-        android:src="@drawable/ic_launcher"
-        android:scaleType="fitCenter"
-        android:layout_above="@+id/text_total_battery"
-        android:layout_marginBottom="40sp"
+        android:src="@drawable/information"
+        android:scaleType="fitStart"
+        android:paddingLeft="80sp"
+        android:paddingRight="80sp"
+        android:paddingTop="80sp"
         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Total Battery 90%"
+        android:text="裝置正在使用中"
         android:id="@+id/text_total_battery"
-        android:layout_above="@+id/text_remain_title"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="40sp"
-        android:textSize="@dimen/extralarge_font"/>
-
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Remaining Time"
-        android:id="@+id/text_remain_title"
+        android:textSize="@dimen/large_font"
+        android:textColor="@color/background_black"
         android:layout_above="@+id/text_remain_time"
-        android:layout_centerHorizontal="true"
-        android:textSize="@dimen/medium_font"
-        android:background="@color/main_green"
-        android:textColor="@color/white_opaque"
-        android:gravity="center_horizontal"/>
+        android:paddingBottom="50sp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="XX Hr : YY Min"
+        android:text="剩餘使用時間\n約5小時35分"
         android:id="@+id/text_remain_time"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:textSize="@dimen/large_font"/>
+        android:textSize="@dimen/normal_font"
+        android:textColor="@color/background_black"
+        android:paddingBottom="50sp"/>
 </RelativeLayout>

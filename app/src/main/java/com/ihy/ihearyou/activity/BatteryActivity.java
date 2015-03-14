@@ -13,15 +13,10 @@ public class BatteryActivity extends ActionBarActivity {
 
     private BatteryBroadcastReceiver mPowerReceiver = null;
 
-    private TextView mTotalBatteryText, mRemainTimeText;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_battery);
-
-        mTotalBatteryText = (TextView)findViewById(R.id.text_total_battery);
-        mRemainTimeText = (TextView)findViewById(R.id.text_remain_time);
     }
 
     @Override
@@ -35,10 +30,6 @@ public class BatteryActivity extends ActionBarActivity {
         mPowerReceiver.setBatteryStatusListener(new BatteryBroadcastReceiver.OnBatteryStatusListener() {
             @Override
             public void onPowerStatusChanged(boolean chargePlugged, float percentage) {
-                if(chargePlugged)
-                    mTotalBatteryText.setText("Charging " + percentage * 100.f + "%");
-                else
-                    mTotalBatteryText.setText("Battery left " + percentage * 100.f + "%");
             }
         });
     }

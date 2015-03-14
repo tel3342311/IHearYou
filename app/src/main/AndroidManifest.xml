@@ -23,7 +23,7 @@
 
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="耳目譯新" >
         </activity>
 
         <activity
@@ -48,7 +48,7 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".activity.BatteryActivity"
-            android:label="Battery"
+            android:label="裝置電量"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".reminder.AddAlarmActivity"
