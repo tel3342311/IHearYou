@@ -4,18 +4,18 @@ public class CollaborationProcess {
 
     private static final String[] ProcessTitle =
         {
-            "Test 1",
-            "Test 2",
-            "Test 3",
-            "Test 4"
+            "高頻測驗(左耳)",
+            "高頻測驗(右耳)",
+            "純音測驗(左耳)",
+            "純音測驗(右耳)",
         };
 
     private static final String[] ProcessDescription =
         {
-            "Description 1",
-            "Description 2",
-            "Description 3",
-            "Description 4"
+            "點擊播放鍵開始測試\n並回答聽見聲音與否",
+            "點擊播放鍵開始測試\n並回答聽見聲音與否",
+            "點擊播放鍵開始測試\n並回答聽見聲音與否",
+            "點擊播放鍵開始測試\n並回答聽見聲音與否",
         };
 
     private static final String[] ProcessInformation =
