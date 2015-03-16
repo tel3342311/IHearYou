@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/scrollView" >
+
+    <LinearLayout
+        android:id="@+id/main_layout"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="本次練習結果"
+            android:id="@+id/questionTitle"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="42dp"/>
+
+        <TextView
+            android:id="@+id/questionDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18.67sp"
+            android:text="平均正確率"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"/>
+
+        <ImageView
+            android:id="@+id/progress_circular"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/information"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="最佳紀錄60.5％"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/repeat"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_below="@+id/main_layout"
+        android:layout_alignLeft="@+id/main_layout"
+        android:layout_marginLeft="81dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/sel_btn_repeat"/>
+    <ImageView
+        android:id="@+id/next"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_below="@+id/main_layout"
+        android:layout_alignRight="@+id/main_layout"
+        android:layout_marginRight="81dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/sel_btn_next"/>
+</RelativeLayout>

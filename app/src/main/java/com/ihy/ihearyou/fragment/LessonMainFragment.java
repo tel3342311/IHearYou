@@ -26,6 +26,10 @@ import java.util.ArrayList;
  */
 public class LessonMainFragment extends Fragment {
 
+    private View mOralView;
+    private View mDialogueView;
+    private View mPronounceView;
+
     // Container Activity must implement this interface
     public interface OnFragmentInteractionListener {
         public void onFragmentInteraction(Intent intent);
@@ -85,6 +89,10 @@ public class LessonMainFragment extends Fragment {
 
     private void findViews() {
         mRootView = getActivity().findViewById(R.id.lesson_frame);
+        mOralView = getActivity().findViewById(R.id.oral_view);
+        mDialogueView = getActivity().findViewById(R.id.dialogue_view);
+        mPronounceView = getActivity().findViewById(R.id.pronounce_view);
+        mOralView.setOnClickListener(mOnClickListener);
         mListView = (ListView) mRootView.findViewById(R.id.lesson_list);
     }
 
@@ -168,4 +176,28 @@ public class LessonMainFragment extends Fragment {
             return convertView;
         }
     }
+
+    private View.OnClickListener mOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (v.getId() == R.id.oral_view) {
+                Intent intent = new Intent();
+                intent.putExtra("TAG", LessonMainFragment.this.getId());
+                intent.putExtra(LessonMainFragment.this.toString(), 0);
+                mLessonSelectedListener.onFragmentInteraction(intent);
+            } else if (v.getId() == R.id.dialogue_view) {
+
+                Intent intent = new Intent();
+                intent.putExtra("TAG", LessonMainFragment.this.getId());
+                intent.putExtra(LessonMainFragment.this.toString(), 4);
+                mLessonSelectedListener.onFragmentInteraction(intent);
+            } else if (v.getId() == R.id.pronounce_view) {
+                Intent intent = new Intent();
+                intent.putExtra("TAG", LessonMainFragment.this.getId());
+                intent.putExtra(LessonMainFragment.this.toString(), 7);
+                mLessonSelectedListener.onFragmentInteraction(intent);
+
+            }
+        }
+    };
 }

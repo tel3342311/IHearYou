@@ -13,8 +13,8 @@
     <string name="questionDesc">Listen to the sounds clip, Selected the correct answer
         from four options</string>
     <string name="startLesson">Start Lesson</string>
-    <string name="questionTitle">Question %d</string>
-    <string name="questionDetail">Please listen to the sounds clip, choose the right pattern</string>
+    <string name="questionTitle">題目 %d</string>
+    <string name="questionDetail">點選播放鍵並仔細聆聽內容</string>
     <string name="play">play</string>
     <string name="pause">pause</string>
     <string name="Confirm">Confirm</string>
