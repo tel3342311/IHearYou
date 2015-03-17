@@ -13,11 +13,11 @@
         android:background="@drawable/line"/>
     <ImageView
         android:id="@+id/avatar_icon"
-        android:layout_width="23dp"
-        android:layout_height="23dp"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="7dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/avatar_history_1"/>
     <TextView
