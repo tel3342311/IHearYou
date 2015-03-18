@@ -28,23 +28,23 @@
 
         <activity
             android:name=".activity.ConversationActivity"
-            android:label="Conversation"
+            android:label="溝通"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".activity.LessonActivity"
-            android:label="Lesson"
+            android:label="學習"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".activity.ReminderActivity"
-            android:label="Reminder"
+            android:label="提醒"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".activity.RecordActivity"
-            android:label="Record"
+            android:label="紀錄"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".activity.CollaborationActivity"
-            android:label="Collaboration"
+            android:label="裝置校正"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".activity.BatteryActivity"

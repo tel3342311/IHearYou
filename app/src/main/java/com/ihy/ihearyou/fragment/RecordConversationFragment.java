@@ -149,6 +149,7 @@ public class RecordConversationFragment extends Fragment implements PressBackInt
             mRecordList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    mPlayRecordText.setText("準備好播放紀錄");
                     mRecordDetail = true;
                     mDisplayRoot.setVisibility(View.VISIBLE);
                     mPlayRecordList = mRepository.getConversationDataList().get(position);
@@ -231,16 +232,16 @@ public class RecordConversationFragment extends Fragment implements PressBackInt
         private void setAvatar(int idx, ImageView avatar_icon) {
             switch (idx % 4) {
                 case 0:
-                    avatar_icon.setBackground(getActivity().getDrawable(R.drawable.avatar_history_1));
+                    //avatar_icon.setBackground(getActivity().getDrawable(R.drawable.avatar_history_1));
                     break;
                 case 1:
-                    avatar_icon.setBackground(getActivity().getDrawable(R.drawable.avatar_history_2));
+                    //avatar_icon.setBackground(getActivity().getDrawable(R.drawable.avatar_history_2));
                     break;
                 case 2:
-                    avatar_icon.setBackground(getActivity().getDrawable(R.drawable.avatar_history_3));
+                    //avatar_icon.setBackground(getActivity().getDrawable(R.drawable.avatar_history_3));
                     break;
                 case 3:
-                    avatar_icon.setBackground(getActivity().getDrawable(R.drawable.avatar_history_4));
+                    //avatar_icon.setBackground(getActivity().getDrawable(R.drawable.avatar_history_4));
                     break;
             }
         }
