@@ -1,19 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/dateTextView"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="24sp"/>
-
+        android:textSize="17sp"
+        android:text="背單字"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="12dp"/>
+    <ImageView
+        android:id="@+id/time_icon"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:background="@drawable/time_btn"
+        android:layout_below="@+id/title"
+        android:layout_alignLeft="@+id/title"
+        android:layout_marginTop="10dp"/>
     <TextView
         android:id="@+id/timeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="48sp"/>
+        android:textSize="14sp"
+        android:layout_toRightOf="@+id/time_icon"
+        android:layout_alignTop="@+id/time_icon"
+        android:text="12:40"
+        android:layout_marginLeft="18dp"/>
+    <ImageView
+        android:id="@+id/repeat_icon"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:background="@drawable/repeat_reminder_btn"
+        android:layout_below="@+id/time_icon"
+        android:layout_alignLeft="@+id/time_icon"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+    <TextView
+        android:id="@+id/dateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:layout_toRightOf="@+id/repeat_icon"
+        android:layout_alignTop="@+id/repeat_icon"
+        android:layout_marginLeft="18dp"
+        android:layout_marginBottom="10dp"/>
+    <CheckBox
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:background="@drawable/sel_btn_reminder_check"
+        android:button="@null"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@+id/time_icon"
+        android:layout_marginRight="18dp"/>
 
-</LinearLayout>
+
+</RelativeLayout>

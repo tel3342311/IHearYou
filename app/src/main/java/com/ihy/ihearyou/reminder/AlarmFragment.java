@@ -2,7 +2,7 @@ package com.ihy.ihearyou.reminder;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -81,12 +81,12 @@ public class AlarmFragment extends Fragment implements AdapterView.OnItemClickLi
         List<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
 
         HashMap<String, Object> map1 = new HashMap<String, Object>();
-        map1.put(DATE, "週一、週二、週三、週四、週五");
+        map1.put(DATE, "一 二 三 四 五");
         map1.put(TIME, "7:00 AM");
         list.add(map1);
 
         HashMap<String, Object> map2 = new HashMap<String, Object>();
-        map2.put(DATE, "週一、週二、週三、週四、週五");
+        map2.put(DATE, "一 二 三 四 五");
         map2.put(TIME, "3:00 PM");
         list.add(map2);
         return list;

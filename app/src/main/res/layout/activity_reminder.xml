@@ -2,46 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <LinearLayout
-        android:id="@+id/hintLinearLayout"
-        android:layout_width="fill_parent"
-        android:layout_height="100px"
-        android:orientation="horizontal"
-        android:background="#FF000000">
-        <TextView
-            android:id="@+id/text_alarm"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textColor="#FFFFFFFF"
-            android:textSize="24sp"
-            android:text="口譯"/>
-        <TextView
-            android:id="@+id/text_checklist"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textColor="#FF666666"
-            android:textSize="24sp"
-            android:text="便條"/>
-        <TextView
-            android:id="@+id/text_ticket"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textColor="#FF666666"
-            android:textSize="24sp"
-            android:text="到站"/>
-        </LinearLayout>
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/pager"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/hintLinearLayout"/>
+    <FrameLayout
+        android:id="@+id/reminder_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>
