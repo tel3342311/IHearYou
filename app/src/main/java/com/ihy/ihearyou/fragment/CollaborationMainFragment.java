@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.ihy.ihearyou.R;
@@ -57,6 +59,16 @@ public class CollaborationMainFragment extends Fragment {
                     mOnCollaborationStartListener.onStart();
             }
         });
+
+        Spinner spinnerHeadset = (Spinner)rootView.findViewById(R.id.spinner_headset);
+        Spinner spinnerHelp = (Spinner)rootView.findViewById(R.id.spinner_help);
+        ArrayAdapter<String> headsetAdapter = new ArrayAdapter<String>(getActivity(),R.layout.spinner_item);
+        headsetAdapter.add("助聽器");
+        spinnerHeadset.setAdapter(headsetAdapter);
+
+        ArrayAdapter<String> helpAdapter = new ArrayAdapter<String>(getActivity(),R.layout.spinner_item);
+        helpAdapter.add("耳目譯新");
+        spinnerHelp.setAdapter(helpAdapter);
 
         return rootView;
     }

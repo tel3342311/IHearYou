@@ -7,7 +7,7 @@
     <TextView
         android:id="@+id/text_title"
         android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:text="Hearing Cloud : Collaboration"
+        android:text="聽力雲-聽力測驗"
         android:layout_alignParentTop="true"
         android:textSize="@dimen/medium_font"
         android:layout_centerHorizontal="true"
@@ -39,19 +39,60 @@
             android:id="@+id/text_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Goal:\n\nTest user's hearing ability,\nand then adjust device automatically."
+            android:text="目的\n\n用於測試使用者聽力辨識程度\n而針對助聽裝置做調整"
             android:gravity="center_horizontal"
             android:textSize="@dimen/normal_font"
             android:textColor="@color/main_purple"/>
 
         <TextView
+            android:id="@+id/device_adjust_text"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Pre-Adjustment"
+            android:text="測驗前調整"
             android:gravity="center_horizontal"
             android:layout_marginTop="40sp"
             android:textColor="@color/background_black"
             android:textSize="@dimen/normal_font"/>
+        
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp">
+
+            <TextView
+                android:id="@+id/device_title_headset"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="耳機"
+                android:gravity="right"
+                android:textSize="24sp"/>
+
+            <TextView
+                android:id="@+id/device_title_help"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="輔助裝置"
+                android:gravity="right"
+                android:textSize="24sp"
+                android:layout_below="@id/device_title_headset"
+                android:layout_marginTop="10dp"/>
+
+            <Spinner
+                android:id="@+id/spinner_headset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/device_title_headset"
+                android:layout_alignTop="@id/device_title_headset"
+                android:layout_marginLeft="10dp"/>
+
+            <Spinner
+                android:id="@+id/spinner_help"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/device_title_help"
+                android:layout_alignTop="@id/device_title_help"
+                android:layout_marginLeft="10dp"/>
+        </RelativeLayout>
     </LinearLayout>
 
 
@@ -62,7 +103,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20sp"
-        android:text="Start Test"
+        android:text="  開始測試  "
         android:textSize="@dimen/normal_font"
         android:background="@color/main_purple"
         android:textColor="@color/white_opaque"/>

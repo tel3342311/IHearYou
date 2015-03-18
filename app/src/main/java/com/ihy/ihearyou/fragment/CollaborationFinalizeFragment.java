@@ -58,7 +58,7 @@ public class CollaborationFinalizeFragment extends Fragment {
                 if(msg.what == Collaborating_Completed)
                 {
                     mBtnFinish.setEnabled(true);
-                    mBtnFinish.setText("Collaboration Completed.");
+                    mBtnFinish.setText("   V完成校正   ");
                 }
             }
         };
