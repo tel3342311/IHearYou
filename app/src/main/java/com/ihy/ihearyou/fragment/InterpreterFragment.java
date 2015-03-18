@@ -219,7 +219,7 @@ public class InterpreterFragment extends Fragment implements RecognitionListener
         mBtnRecord.setEnabled(isSupport);
         mBtnRecord.setOnClickListener(mOnClickListener);
         mBtnStop.setEnabled(isSupport);
-        mBtnRecord.setOnClickListener(mOnClickListener);
+        mBtnStop.setOnClickListener(mOnClickListener);
         mConversationRepository = ConversationRepository.getInstance(getActivity());
         mConversationRepository.load();
     }

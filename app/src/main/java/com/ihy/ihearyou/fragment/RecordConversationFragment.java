@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -210,6 +211,8 @@ public class RecordConversationFragment extends Fragment implements PressBackInt
             ConversationData data = mRepository.getConversationDataList().get(position);
             TextView dateText = (TextView)view.findViewById(R.id.record_date);
             TextView conversationText = (TextView)view.findViewById(R.id.conversation_text);
+            ImageView avatar_icon = (ImageView) view.findViewById(R.id.avatar_icon);
+            setAvatar(position, avatar_icon);
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
             sdf.getCalendar().setTimeInMillis(data.getDate());
             dateText.setText(sdf.format(new Date()));
@@ -223,6 +226,23 @@ public class RecordConversationFragment extends Fragment implements PressBackInt
             }
 
             return view;
+        }
+
+        private void setAvatar(int idx, ImageView avatar_icon) {
+            switch (idx % 4) {
+                case 0:
+                    avatar_icon.setBackground(getActivity().getDrawable(R.drawable.avatar_history_1));
+                    break;
+                case 1:
+                    avatar_icon.setBackground(getActivity().getDrawable(R.drawable.avatar_history_2));
+                    break;
+                case 2:
+                    avatar_icon.setBackground(getActivity().getDrawable(R.drawable.avatar_history_3));
+                    break;
+                case 3:
+                    avatar_icon.setBackground(getActivity().getDrawable(R.drawable.avatar_history_4));
+                    break;
+            }
         }
     }
 }

@@ -15,6 +15,8 @@
     <string name="startLesson">Start Lesson</string>
     <string name="questionTitle">題目 %d</string>
     <string name="questionDetail">點選播放鍵並仔細聆聽內容</string>
+    <string name="questionDetailRecord">點選錄音鍵並說出上方詞句</string>
+    <string name="questionDetailDialogue">聆聽對話並選擇正確的內容</string>
     <string name="play">play</string>
     <string name="pause">pause</string>
     <string name="Confirm">Confirm</string>

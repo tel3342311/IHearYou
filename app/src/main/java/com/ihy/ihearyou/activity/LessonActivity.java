@@ -14,6 +14,7 @@ import android.view.MenuItem;
 
 import com.ihy.ihearyou.R;
 import com.ihy.ihearyou.fragment.LessonContentFragment;
+import com.ihy.ihearyou.fragment.LessonCorrectFragment;
 import com.ihy.ihearyou.fragment.LessonFinishFragment;
 import com.ihy.ihearyou.fragment.LessonIntroductionFragment;
 import com.ihy.ihearyou.fragment.LessonMainFragment;
@@ -24,13 +25,15 @@ public class LessonActivity extends ActionBarActivity implements
         LessonIntroductionFragment.OnFragmentInteractionListener,
         LessonContentFragment.OnFragmentInteractionListener,
         LessonSearchResult.OnFragmentInteractionListener,
-        LessonFinishFragment.OnFragmentInteractionListener{
+        LessonFinishFragment.OnFragmentInteractionListener,
+        LessonCorrectFragment.OnFragmentInteractionListener{
 
     LessonMainFragment mMainFrag;
     LessonIntroductionFragment mIntroductionFrag;
     LessonContentFragment mContentFragment;
     LessonSearchResult mSearchResult;
     LessonFinishFragment mFinishFrag;
+    LessonCorrectFragment mCorrectFrag;
     public static final int LESSON_ORAL = 0;
     public static final int LESSON_PRONOUNCE = 1;
     public static final int LESSON_DIALOGUE = 2;
@@ -133,14 +136,43 @@ public class LessonActivity extends ActionBarActivity implements
         fragmentTransaction.replace(R.id.lesson_frame, mFinishFrag);
         fragmentTransaction.commit();
     }
+
+    private void switchToCorrectView() {
+        mCorrectFrag = LessonCorrectFragment.newInstance();
+        FragmentManager fm = this.getFragmentManager();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        fragmentTransaction.replace(R.id.lesson_frame, mCorrectFrag);
+        fragmentTransaction.commit();
+    }
     @Override
     public void onFragmentInteraction(Intent intent) {
         int id = intent.getIntExtra("TAG", 0);
+        int type = intent.getIntExtra(mMainFrag.toString(), -1);
         if (id == mMainFrag.getId()) {
+            if (type == 0) {
+                setLessonType(LESSON_ORAL);
+            } else if (type == 1) {
+                setLessonType(LESSON_PRONOUNCE);
+            } else if (type == 2) {
+                setLessonType(LESSON_DIALOGUE);
+            }
             switchToContentView();
         } else if (id == mContentFragment.getId()) {
-            switchToFinishView();
-        } else if (id == mFinishFrag.getId()) {
+            if (mLessonType == LESSON_DIALOGUE) {
+                switchToFinishView();
+            } else if (mLessonType == LESSON_ORAL) {
+                switchToCorrectView();
+            } else if (mLessonType == LESSON_PRONOUNCE) {
+                switchToCorrectView();
+            }
+        } else if (mCorrectFrag != null && id == mCorrectFrag.getId()) {
+            int next = intent.getIntExtra(mCorrectFrag.toString(), 0);
+            if (next == 0) {
+                switchToContentView();
+            } else if (next == 1) {
+                switchToFinishView();
+            }
+        } else if (mFinishFrag != null && id == mFinishFrag.getId()) {
             int next = intent.getIntExtra(mFinishFrag.toString(), 0);
             if (next == 0) {
                 switchToContentView();
@@ -148,6 +180,15 @@ public class LessonActivity extends ActionBarActivity implements
                 mQuestion = (mQuestion + 1) % 5;
                 switchToContentView();
             }
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mMainFrag != null && mMainFrag.isVisible()) {
+            super.onBackPressed();
+        } else {
+            switchToMainView();
         }
     }
 

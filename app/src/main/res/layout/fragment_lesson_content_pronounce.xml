@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:textColor="#92ab2b"
             android:textSize="43sp"
-            android:text="歸納"
+            android:text="ㄅ\nㄢ"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="84dp"/>
 
@@ -38,22 +38,23 @@
             android:layout_marginTop="100dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"/>
+
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="56dp"
             android:layout_gravity="center_horizontal">
-        <Button
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:id="@+id/play"
-            android:background="@drawable/sel_btn_play"/>
-        <Button
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:id="@+id/record"
-            android:background="@drawable/sel_btn_record"
-            android:visibility="gone"/>
+            <Button
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:id="@+id/play"
+                android:background="@drawable/sel_btn_play"/>
+            <Button
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:id="@+id/record"
+                android:background="@drawable/sel_btn_record"
+                android:visibility="gone"/>
         </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>

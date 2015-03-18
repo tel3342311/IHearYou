@@ -93,6 +93,8 @@ public class LessonMainFragment extends Fragment {
         mDialogueView = getActivity().findViewById(R.id.dialogue_view);
         mPronounceView = getActivity().findViewById(R.id.pronounce_view);
         mOralView.setOnClickListener(mOnClickListener);
+        mPronounceView.setOnClickListener(mOnClickListener);
+        mDialogueView.setOnClickListener(mOnClickListener);
         mListView = (ListView) mRootView.findViewById(R.id.lesson_list);
     }
 
@@ -185,18 +187,17 @@ public class LessonMainFragment extends Fragment {
                 intent.putExtra("TAG", LessonMainFragment.this.getId());
                 intent.putExtra(LessonMainFragment.this.toString(), 0);
                 mLessonSelectedListener.onFragmentInteraction(intent);
+            } else if (v.getId() == R.id.pronounce_view) {
+                Intent intent = new Intent();
+                intent.putExtra("TAG", LessonMainFragment.this.getId());
+                intent.putExtra(LessonMainFragment.this.toString(), 1);
+                mLessonSelectedListener.onFragmentInteraction(intent);
             } else if (v.getId() == R.id.dialogue_view) {
 
                 Intent intent = new Intent();
                 intent.putExtra("TAG", LessonMainFragment.this.getId());
-                intent.putExtra(LessonMainFragment.this.toString(), 4);
+                intent.putExtra(LessonMainFragment.this.toString(), 2);
                 mLessonSelectedListener.onFragmentInteraction(intent);
-            } else if (v.getId() == R.id.pronounce_view) {
-                Intent intent = new Intent();
-                intent.putExtra("TAG", LessonMainFragment.this.getId());
-                intent.putExtra(LessonMainFragment.this.toString(), 7);
-                mLessonSelectedListener.onFragmentInteraction(intent);
-
             }
         }
     };
