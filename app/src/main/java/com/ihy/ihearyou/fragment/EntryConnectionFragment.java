@@ -66,7 +66,7 @@ public class EntryConnectionFragment extends Fragment {
         {
             if(msg.what == CONNECT_FINISH)
             {
-                mBtnConnect.setText("Go to main page");
+                mBtnConnect.setText("   到首頁   ");
                 mBtnConnect.setEnabled(true);
                 mConnectStatus = ConnectStatus.Connected;
             }
@@ -88,7 +88,7 @@ public class EntryConnectionFragment extends Fragment {
                     case UnConnect:
                     {
                         mBtnConnect.setEnabled(false);
-                        mBtnConnect.setText("Connecting...");
+                        mBtnConnect.setText("   裝置連結中...   ");
                         mConnectStatus = ConnectStatus.Connecting;
                         mHandler.sendMessageDelayed(mHandler.obtainMessage(CONNECT_FINISH), 3000);
                     }

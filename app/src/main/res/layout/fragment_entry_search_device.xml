@@ -18,7 +18,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:text="Available Devices"
+            android:text="可用裝置"
             android:textSize="@dimen/large_font"
             android:textColor="@color/white_opaque"
             android:gravity="center"/>
@@ -34,7 +34,7 @@
         android:id="@+id/button_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Search Devices"
+        android:text="   搜尋裝置   "
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="40sp"

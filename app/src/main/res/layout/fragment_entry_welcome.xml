@@ -12,7 +12,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:text="Welcome!"
+            android:text="歡迎使用"
             android:textSize="@dimen/extralarge_font"
             android:gravity="center_horizontal"
             android:layout_centerHorizontal="true"/>
@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_welcome"
-            android:text="It's the first time using IHearYou\nPlease setup device connection with this app."
+            android:text="初次安裝耳目譯新App\n請進行裝置及App的連結"
             android:gravity="center_horizontal"
             android:layout_marginTop="60sp"/>
     </RelativeLayout>
@@ -29,7 +29,7 @@
         android:id="@+id/button_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Next"
+        android:text="   下一步   "
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="40sp"

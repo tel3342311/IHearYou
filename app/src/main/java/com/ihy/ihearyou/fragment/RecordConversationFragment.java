@@ -149,6 +149,7 @@ public class RecordConversationFragment extends Fragment implements PressBackInt
             mRecordList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    mPlayRecordText.setText("準備好播放紀錄");
                     mRecordDetail = true;
                     mDisplayRoot.setVisibility(View.VISIBLE);
                     mPlayRecordList = mRepository.getConversationDataList().get(position);
