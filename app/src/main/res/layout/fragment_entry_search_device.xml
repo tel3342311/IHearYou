@@ -11,15 +11,16 @@
         android:background="@color/background_black"
         android:gravity="center_horizontal">
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher"/>
+            android:src="@drawable/ic_launcher"
+            android:layout_margin="5dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:text="可用裝置"
-            android:textSize="@dimen/large_font"
+            android:textSize="@dimen/medium_font"
             android:textColor="@color/white_opaque"
             android:gravity="center"/>
     </LinearLayout>
