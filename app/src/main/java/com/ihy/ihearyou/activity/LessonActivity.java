@@ -184,10 +184,10 @@ public class LessonActivity extends ActionBarActivity implements
             }
         } else if (mFinishFrag != null && id == mFinishFrag.getId()) {
             int next = intent.getIntExtra(mFinishFrag.toString(), 0);
+            mQuestion = 0;
             if (next == 0) {
                 switchToContentView();
             } else if (next == 1) {
-                mQuestion = 0;
                 switchToMainView();
             }
         }
