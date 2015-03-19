@@ -57,7 +57,7 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="@drawable/sel_btn_one"/>
+                android:background="@drawable/sel_btn_two"/>
             <TextView
                 android:id="@+id/option_text2"
                 android:layout_width="wrap_content"
@@ -78,7 +78,7 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="@drawable/sel_btn_one"/>
+                android:background="@drawable/sel_btn_three"/>
             <TextView
                 android:id="@+id/option_text3"
                 android:layout_width="wrap_content"

@@ -145,7 +145,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/oral"
                 android:layout_below="@+id/pronounce_icon"
-                android:layout_marginTop="24dp"
+                android:layout_marginBottom="20dp"
                 android:layout_centerHorizontal="true" />
             </RelativeLayout>
         <RelativeLayout
@@ -166,7 +166,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/pronounce"
                 android:layout_below="@+id/oral_icon"
-                android:layout_marginTop="24dp"
+                android:layout_marginBottom="20dp"
                 android:layout_centerHorizontal="true" />
         </RelativeLayout>
         <RelativeLayout
@@ -187,7 +187,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dialogue"
                 android:layout_below="@+id/dialogue_icon"
-                android:layout_marginTop="24dp"
+                android:layout_marginBottom="20dp"
                 android:layout_centerHorizontal="true" />
         </RelativeLayout>
     </LinearLayout>
