@@ -159,7 +159,12 @@ public class LessonActivity extends ActionBarActivity implements
             switchToContentView();
         } else if (id == mContentFragment.getId()) {
             if (mLessonType == LESSON_DIALOGUE) {
-                switchToFinishView();
+                if (mQuestion == 4) {
+                    switchToFinishView();
+                    return;
+                }
+                mQuestion = (mQuestion + 1) % 5;
+                switchToContentView();
             } else if (mLessonType == LESSON_ORAL) {
                 switchToCorrectView();
             } else if (mLessonType == LESSON_PRONOUNCE) {
@@ -170,15 +175,20 @@ public class LessonActivity extends ActionBarActivity implements
             if (next == 0) {
                 switchToContentView();
             } else if (next == 1) {
-                switchToFinishView();
+                if (mQuestion == 4) {
+                    switchToFinishView();
+                    return;
+                }
+                mQuestion = (mQuestion + 1) % 5;
+                switchToContentView();
             }
         } else if (mFinishFrag != null && id == mFinishFrag.getId()) {
             int next = intent.getIntExtra(mFinishFrag.toString(), 0);
             if (next == 0) {
                 switchToContentView();
             } else if (next == 1) {
-                mQuestion = (mQuestion + 1) % 5;
-                switchToContentView();
+                mQuestion = 0;
+                switchToMainView();
             }
         }
     }
