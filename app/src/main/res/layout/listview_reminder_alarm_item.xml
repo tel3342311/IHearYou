@@ -57,6 +57,9 @@
         android:layout_alignParentRight="true"
         android:layout_alignBottom="@+id/time_icon"
         android:layout_marginRight="18dp"/>
-
+    <View
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_below="@id/dateTextView"/>
 
 </RelativeLayout>

@@ -5,25 +5,138 @@
     tools:context="com.ihy.ihearyou.reminder.AddAlarmActivity">
 
     <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="100px"
-        android:background="#FF000000"
-        android:textColor="#FFFFFFFF"
+        android:id="@+id/reminder_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textSize="24sp"
-        android:gravity="center"
-        android:text="新增鬧鈴"/>
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="13dp"
+        android:text="提醒內容"/>
+    <EditText
+        android:id="@+id/content_input"
+        android:layout_width="249dp"
+        android:layout_height="39dp"
+        android:layout_below="@+id/reminder_title"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="5dp"
+        android:layout_marginTop="30dp"
+        android:hint="輸入提醒內容"
+        android:background="@drawable/content_base"/>
+    <View
+        android:id="@+id/sep_line"
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/content_input"
+        android:layout_marginTop="49dp"
+        android:background="@android:color/darker_gray"/>
+
+    <TextView
+        android:id="@+id/time_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sep_line"
+        android:textSize="24sp"
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="13dp"
+        android:text="時間"/>
 
     <TimePicker
         android:id="@+id/timePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="160dp"
+        android:layout_below="@+id/sep_line"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:timePickerMode="spinner">
+    </TimePicker>
+    <View
+        android:id="@+id/sep_line2"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:gravity="center"/>
-
+        android:layout_height="1px"
+        android:layout_below="@id/timePicker"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray"/>
+    <TextView
+        android:id="@+id/repeat_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sep_line2"
+        android:textSize="24sp"
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginBottom="10dp"
+        android:text="重複"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/repeat_title"
+        android:gravity="center_horizontal"
+        android:layout_alignLeft="@id/repeat_title"
+        android:layout_marginTop="42dp">
+    <CheckBox
+        android:id="@+id/all_check"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:background="@drawable/sel_btn_allday_check"
+        android:button="@null"/>
+    <CheckBox
+        android:id="@+id/sun_check"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:background="@drawable/sel_btn_sun_check"
+        android:button="@null"
+        android:layout_marginLeft="15dp"/>
+    <CheckBox
+        android:id="@+id/mon_check"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:background="@drawable/sel_btn_mon_check"
+        android:button="@null"
+        android:layout_marginLeft="15dp"/>
+    <CheckBox
+        android:id="@+id/tue_check"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:background="@drawable/sel_btn_tue_check"
+        android:button="@null"
+        android:layout_marginLeft="15dp"/>
+    <CheckBox
+        android:id="@+id/wed_check"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:background="@drawable/sel_btn_wed_check"
+        android:button="@null"
+        android:layout_marginLeft="15dp"/>
+    <CheckBox
+        android:id="@+id/thu_check"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:background="@drawable/sel_btn_thu_check"
+        android:button="@null"
+        android:layout_marginLeft="15dp"/>
+    <CheckBox
+        android:id="@+id/fri_check"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:background="@drawable/sel_btn_fri_check"
+        android:button="@null"
+        android:layout_marginLeft="15dp"/>
+    <CheckBox
+        android:id="@+id/sat_check"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:background="@drawable/sel_btn_sat_check"
+        android:button="@null"
+        android:layout_marginLeft="15dp"/>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:id="@+id/linearLayout"
+       android:visibility="gone">
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

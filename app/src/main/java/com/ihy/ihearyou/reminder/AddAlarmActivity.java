@@ -6,16 +6,23 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.ihy.ihearyou.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AddAlarmActivity extends ActionBarActivity {
 
     private TextView reTextView, vibrateTextView;
+    private EditText editTextTitle;
     private String trigger;
+    private List<CheckBox> checkBoxList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +41,16 @@ public class AddAlarmActivity extends ActionBarActivity {
 
         reTextView = (TextView)findViewById(R.id.reTextView);
         vibrateTextView = (TextView)findViewById(R.id.vibrateTextView);
+        editTextTitle = (EditText) findViewById(R.id.content_input);
+
+        checkBoxList.add((CheckBox)findViewById(R.id.all_check));
+        checkBoxList.add((CheckBox)findViewById(R.id.mon_check));
+        checkBoxList.add((CheckBox)findViewById(R.id.tue_check));
+        checkBoxList.add((CheckBox)findViewById(R.id.wed_check));
+        checkBoxList.add((CheckBox)findViewById(R.id.thu_check));
+        checkBoxList.add((CheckBox)findViewById(R.id.fri_check));
+        checkBoxList.add((CheckBox)findViewById(R.id.sat_check));
+        checkBoxList.add((CheckBox)findViewById(R.id.sun_check));
     }
 
     @Override
@@ -59,6 +76,8 @@ public class AddAlarmActivity extends ActionBarActivity {
                 intent.putExtra(AlarmFragment.MINUTE, min);
                 intent.putExtra(AlarmFragment.TRIGGER, trigger);
                 intent.putExtra(AlarmFragment.RE_TYPE, reTextView.getText().toString());
+                intent.putExtra(AlarmFragment.RE_REPEAT, getRepeatString());
+                intent.putExtra(AlarmFragment.RE_TITLE, editTextTitle.getText().toString());
                 setResult(RESULT_OK, intent);
                 finish();
                 return true;
@@ -92,4 +111,25 @@ public class AddAlarmActivity extends ActionBarActivity {
             }
         }
     };
+
+    private String getRepeatString() {
+        String repeat[] = {
+                "一 二 三 四 五 六 日",
+                "一", "二", "三", "四", "五", "六", "日",
+        };
+        StringBuffer strBuffer = new StringBuffer();
+        if (checkBoxList.size() > 0) {
+            for( int i = 0; i < checkBoxList.size(); i++) {
+                CheckBox cb = checkBoxList.get(i);
+                if (cb.isChecked() == true) {
+
+                    if (i == 0)
+                        return repeat[0];
+                    else
+                        strBuffer.append(repeat[i] + " ");
+                }
+            }
+        }
+        return strBuffer.toString();
+    }
 }
